@@ -1,0 +1,16 @@
+version: '3.7'
+
+services:
+  db:
+    image: postgres:latest
+    container_name: demo-caffeine-container
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: demo
+    volumes:
+      - /demo/db/data:/var/lib/postgresql
+    ports:
+      - 5439:5439
+    command: -p 5439
